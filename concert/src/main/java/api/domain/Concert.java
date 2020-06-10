@@ -17,6 +17,7 @@ public class Concert {
     @Id
     private ObjectId id;
 
+    private String concertId;
     private String concertName;
     private String dateStart;
     private String dateEnd;
@@ -24,22 +25,15 @@ public class Concert {
     private String imageUri;
     private String place;
     private String description;
-    private List<String> artistList;
+    private List<String> artistIdList;
 
     @Transient
-    private List<Artist> artistInfo;
-
-    public Concert withArtistInfo(Artist artist) {
-        List<Artist> data = this.getArtistInfo();
-        data.add(artist);
-        this.setArtistInfo(data);
-        return this;
-    }
-
+    private List<Artist> artistList;
 
     @Builder
-    public Concert(String concertName, String dateStart, String dateEnd, String ticketUri,
-                   String imageUri, String place, String description, List<String> artistList){
+    public Concert(String concertId, String concertName, String dateStart, String dateEnd, String ticketUri,
+                   String imageUri, String place, String description, List<String> artistIdList){
+        this.concertId = concertId;
         this.concertName = concertName;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
@@ -47,7 +41,7 @@ public class Concert {
         this.imageUri = imageUri;
         this.place = place;
         this.description = description;
-        this.artistList = artistList;
+        this.artistIdList = artistIdList;
     }
 
 }

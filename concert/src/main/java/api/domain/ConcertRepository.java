@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface ConcertRepository extends MongoRepository<Concert, Long> {
 //    List<Concert> findByArtistId(String id);
-    List<Concert> findByArtistList();
 
 }

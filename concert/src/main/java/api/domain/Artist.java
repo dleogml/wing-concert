@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 public class Artist {
 
+    private String artistId;
     private String artistName;
     private String imageUri;
     private String description;
