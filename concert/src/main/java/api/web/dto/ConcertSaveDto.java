@@ -1,12 +1,14 @@
 package api.web.dto;
 
 
+import api.domain.Artist;
 import api.domain.Concert;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -20,10 +22,10 @@ public class ConcertSaveDto {
     private String imageUri;
     private String ticketUri;
     private String description;
-    private List<String> artistId;
+    private List<String> artistIdList;
 
     @Builder
-    public ConcertSaveDto(String concertName, String place, String dateStart, String dateEnd, String imageUri, String ticketUri, String description, List<String> artistId) {
+    public ConcertSaveDto(String concertName, String place, String dateStart, String dateEnd, String imageUri, String ticketUri, String description, List<String> artistIdList) {
         this.concertName = concertName;
         this.place = place;
         this.dateStart = dateStart;
@@ -31,7 +33,7 @@ public class ConcertSaveDto {
         this.imageUri = imageUri;
         this.ticketUri = ticketUri;
         this.description = description;
-        this.artistId = artistId;
+        this.artistIdList = artistIdList;
     }
 
     public Concert toEntity() {
@@ -43,9 +45,7 @@ public class ConcertSaveDto {
                 .imageUri(imageUri)
                 .ticketUri(ticketUri)
                 .description(description)
-//                .artistId(artistId)
+                .artistIdList(artistIdList)
                 .build();
     }
-
-
 }
